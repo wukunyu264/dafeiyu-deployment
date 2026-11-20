@@ -1,0 +1,74 @@
+# ===== 凭据与私人数据（绝对不要提交）=====
+*.env
+.env
+.env.*
+!.env.example
+!config/model.example.env
+*token*
+*secret*
+*key*.txt
+后台.txt
+大号QQ.txt
+deepseek-key.txt
+豆包语音.txt
+sf-key.txt
+cookie*.json
+*session*.json
+
+# ===== AstrBot 运行数据 =====
+data/
+data_*/
+data_v4.db
+data_v4.db-*
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+plugin_data/
+logs/
+temp/
+cache/
+*_console.log
+*_stderr.log
+*_import.log
+*.log
+
+# ===== 第三方运行环境与二进制（不入库）=====
+AstrBot/
+NapCat/
+NapCat-old/
+ffmpeg*/
+*.exe
+*.dll
+*.zip
+*.7z
+*.rar
+
+# ===== Python =====
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ===== Node =====
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+
+# ===== 编辑器 / 系统 =====
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== 截图（人工脱敏后再决定是否提交）=====
+screenshots/*.png
+screenshots/*.jpg
+screenshots/*.jpeg

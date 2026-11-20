@@ -1,0 +1,76 @@
+{
+  "_comment": "脱敏示例：只展示关键字段结构，不要直接当完整配置使用。真实凭据不要写进本文件，用环境变量或单独的 txt 文件，见 model.example.env",
+
+  "platform": [
+    {
+      "id": "napcat",
+      "type": "aiocqhttp",
+      "enable": true,
+      "ws_reverse_host": "127.0.0.1",
+      "ws_reverse_port": 6199,
+      "ws_reverse_token": "<RANDOM_TOKEN_32_CHARS>"
+    }
+  ],
+
+  "provider_sources": [
+    {
+      "id": "chat_source",
+      "type": "openai_chat_completion",
+      "api_base": "https://api.deepseek.com/v1",
+      "key": ["<DEEPSEEK_API_KEY>"],
+      "timeout": 180
+    },
+    {
+      "id": "embedding_source",
+      "type": "openai_embedding",
+      "embedding_api_base": "https://api.siliconflow.cn/v1",
+      "embedding_model": "BAAI/bge-m3",
+      "key": ["<EMBEDDING_API_KEY>"]
+    }
+  ],
+
+  "provider": [
+    {
+      "id": "chat-default",
+      "provider_source_id": "chat_source",
+      "model": "deepseek-flash",
+      "modalities": ["text", "image"],
+      "custom_extra_body": {},
+      "enable": true
+    },
+    {
+      "id": "embedding-default",
+      "provider_source_id": "embedding_source",
+      "embedding_dimensions": 1024,
+      "enable": true
+    }
+  ],
+
+  "admins_id": ["<OWNER_QQ>"],
+
+  "platform_settings": {
+    "enable_id_white_list": true,
+    "id_whitelist": ["napcat:FriendMessage:<OWNER_QQ>"],
+    "id_whitelist_log": true,
+    "reply_with_quote": false,
+    "segmented_reply": {
+      "enable": false
+    }
+  },
+
+  "provider_settings": {
+    "computer_use_runtime": "none",
+    "streaming_response": false
+  },
+
+  "dashboard": {
+    "enable": true,
+    "username": "<WEBUI_USERNAME>",
+    "password": "<SET_VIA_WEBUI_DO_NOT_COMMIT>",
+    "host": "0.0.0.0",
+    "port": 6185
+  },
+
+  "http_proxy": "",
+  "no_proxy": ["localhost", "127.0.0.1", "::1"]
+}
